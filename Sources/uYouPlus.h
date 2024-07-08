@@ -42,6 +42,12 @@
 #import <YouTubeHeader/YTWatchNextResultsViewController.h>
 #import <YouTubeHeader/YTWatchPullToFullController.h>
 #import <YouTubeHeader/YTWatchViewController.h>
+
+#import <YouTubeHeader/YTPivotBarItemView.h>
+#import <YouTubeHeader/YTIItemSectionSupportedRenderers.h>
+#import <YouTubeHeader/YTISectionListRenderer.h>
+#import <YouTubeHeader/YTPlayerOverlayProvider.h>
+
 #import "uYouPlusThemes.h" // uYouPlus Themes
 
 #define LOC(x) [tweakBundle localizedStringForKey:x value:nil table:nil]

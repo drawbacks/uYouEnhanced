@@ -964,23 +964,23 @@ static int contrastMode() {
 // Disable pull to enter vertical/portrait fullscreen gesture - @bhackel
 // This was introduced in version 19.XX
 // This only applies to landscape videos
-%group gDisablePullToFull
-%hook YTWatchPullToFullController
-- (BOOL)shouldRecognizeOverscrollEventsFromWatchOverscrollController:(id)arg1 {
-    // Get the current player orientation
-    YTWatchViewController *watchViewController = self.playerViewSource;
-    NSUInteger allowedFullScreenOrientations = [watchViewController allowedFullScreenOrientations];
-    // Check if the current player orientation is portrait
-    if (allowedFullScreenOrientations == UIInterfaceOrientationMaskAllButUpsideDown
-            || allowedFullScreenOrientations == UIInterfaceOrientationMaskPortrait
-            || allowedFullScreenOrientations == UIInterfaceOrientationMaskPortraitUpsideDown) {
-        return %orig;
-    } else {
-        return NO;
-    }
-}
-%end
-%end
+// %group gDisablePullToFull
+// %hook YTWatchPullToFullController
+// - (BOOL)shouldRecognizeOverscrollEventsFromWatchOverscrollController:(id)arg1 {
+//     // Get the current player orientation
+//     YTWatchViewController *watchViewController = self.playerViewSource;
+//     NSUInteger allowedFullScreenOrientations = [watchViewController allowedFullScreenOrientations];
+//     // Check if the current player orientation is portrait
+//     if (allowedFullScreenOrientations == UIInterfaceOrientationMaskAllButUpsideDown
+//             || allowedFullScreenOrientations == UIInterfaceOrientationMaskPortrait
+//             || allowedFullScreenOrientations == UIInterfaceOrientationMaskPortraitUpsideDown) {
+//         return %orig;
+//     } else {
+//         return NO;
+//     }
+// }
+// %end
+// %end
 
 // Video Controls Overlay Options
 // Hide CC / Hide Autoplay switch / Hide YTMusic Button / Enable Share Button / Enable Save to Playlist Button
@@ -1751,9 +1751,9 @@ static BOOL findCell(ASNodeController *nodeController, NSArray <NSString *> *ide
     if (IS_ENABLED(@"youTabFakePremium_enabled")) {
         %init(gFakePremium);
     }
-    if (IS_ENABLED(@"disablePullToFull_enabled")) {
-        %init(gDisablePullToFull);
-    }
+    // if (IS_ENABLED(@"disablePullToFull_enabled")) {
+    //     %init(gDisablePullToFull);
+    // }
     if (IS_ENABLED(@"uYouAdBlockingWorkaroundLite_enabled")) {
         %init(uYouAdBlockingWorkaroundLite);
     }
